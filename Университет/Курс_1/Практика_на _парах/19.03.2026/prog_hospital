@@ -1,0 +1,27 @@
+﻿program
+type time = record
+  hh, mm : byte;
+  end;
+type diap_time = record
+  _begin, _end, time;
+end;
+type doctor = record
+  F, I, O : string;
+  spec : string;
+  Num : word;
+  Price : real;
+  Time : array[1..7] of diap_time;
+end;
+const n = 10;
+type hospital = array[1..n] of doctor;
+var H : hospital;
+f1, f: text;
+j, i ; integer;
+s, slovo :string
+begin
+  assign(f'doctor.txt'); reset(f); assign(f1,'hospital.txt'); rewrite(f1);
+ read_hospital(f, h);
+ print_hospital(f1, h);
+ close(f);
+ close(f1);
+end.
